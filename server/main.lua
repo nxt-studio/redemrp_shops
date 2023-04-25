@@ -63,10 +63,10 @@ AddEventHandler('redemrp_shops:BuyItem', function(itemName, amount , zone)
     TriggerEvent('redemrp:getPlayerFromId', _source, function(user)
             if user.getMoney() >= TotalPrice then
 
-                if not exports.inventory:canCarryItem(_source, itemName, amount) then
+                if not exports.inventory:canCarryItem(_source, itemName, amount_) then
                     TriggerClientEvent("redemrp_notification:start", _source, "You don't have enough space!", 3, "error")
                 else
-                    if exports.inventory:AddItem(_source, itemName, amount) then
+                    if exports.inventory:AddItem(_source, itemName, amount_) then
                         user.removeMoney(TotalPrice)
 
                         local name = Item.label
