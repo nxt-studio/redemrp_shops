@@ -1,8 +1,6 @@
-
 local Items = exports.inventory:ItemsList()
 
 local ShopItems = {}
-
 
 Citizen.CreateThread(function()
     LoadShop()
@@ -42,14 +40,12 @@ function GetPrice(ItemName , Zone)
     return 0
 end
 
-RegisterServerEvent('redemrp_shops:RequestItems')
-AddEventHandler('redemrp_shops:RequestItems', function()
+RegisterNetEvent('redemrp_shops:RequestItems', function()
     local _source = source
     TriggerClientEvent('redemrp_shops:GetItems', _source, ShopItems)
 end)
 
-RegisterServerEvent('redemrp_shops:BuyItem')
-AddEventHandler('redemrp_shops:BuyItem', function(itemName, amount , zone)
+RegisterNetEvent('redemrp_shops:BuyItem', function(itemName, amount , zone)
     local _source = source
     local amount_ = math.floor(amount)
 
