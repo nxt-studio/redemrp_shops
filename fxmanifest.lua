@@ -14,3 +14,4 @@ server_scripts {
 	'server/main.lua',
 }
 
+dependency 'inventory'
